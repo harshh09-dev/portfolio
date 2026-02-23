@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
 
+const lifestyleImages = [
+  { label: "EAT", src: "https://parthh.in/_next/image?url=%2Fimages%2Fwebp%2FEAT.webp&w=640&q=75" },
+  { label: "TRAVEL", src: "https://parthh.in/_next/image?url=%2Fimages%2Fwebp%2FTRAVEL.webp&w=640&q=75" },
+  { label: "CODE", src: "https://parthh.in/_next/image?url=%2Fimages%2Fwebp%2FCODE.webp&w=640&q=75" },
+];
+
 const AboutSection = () => {
   return (
     <section className="px-6 py-32 md:px-16">
@@ -25,7 +31,8 @@ const AboutSection = () => {
           <p>
             I'm Parth Sharma, an engineering-driven developer who turns complex technical
             challenges into high-speed web products. I manage the entire stack with a focus on
-            clean, reusable code and seamless performance.
+            clean, reusable code and seamless performance. I excel in Next.js and full-stack
+            architecture, always delivering modern solutions that actually solve problems for every user.
           </p>
           <p>
             As the founder of Rune, I manage platforms like Rune AI and Rune Hub. Building a
@@ -58,6 +65,29 @@ const AboutSection = () => {
             >
               {link.label}
             </a>
+          ))}
+        </motion.div>
+
+        {/* Lifestyle images */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="mt-12 grid grid-cols-3 gap-4"
+        >
+          {lifestyleImages.map((img) => (
+            <div key={img.label} className="group relative overflow-hidden rounded-2xl">
+              <img
+                src={img.src}
+                alt={img.label}
+                className="aspect-[3/4] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-background/80 to-transparent p-4">
+                <p className="text-sm font-bold uppercase tracking-widest text-foreground">{img.label}</p>
+              </div>
+            </div>
           ))}
         </motion.div>
       </div>
