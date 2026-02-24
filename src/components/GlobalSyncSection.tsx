@@ -88,6 +88,12 @@ const GlobalSyncSection = () => {
               </h3>
               <p className="mt-3 text-sm text-muted-foreground">hello@parthh.in</p>
               <p className="mt-1 text-xs text-muted-foreground/60">Tap to copy email</p>
+              <a
+                href="#contact"
+                className="mt-4 inline-block rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_20px_-4px_hsl(142,71%,45%,0.4)]"
+              >
+                Connect Now
+              </a>
             </div>
           </motion.div>
         </div>
