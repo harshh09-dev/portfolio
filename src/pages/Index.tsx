@@ -1,10 +1,12 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import IntroCard from "@/components/IntroCard";
 import PhilosophySection from "@/components/PhilosophySection";
 import GlobalSyncSection from "@/components/GlobalSyncSection";
 import FounderSection from "@/components/FounderSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
+import WorkExperienceSection from "@/components/WorkExperienceSection";
 import AboutSection from "@/components/AboutSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import BehindCurtainsSection from "@/components/BehindCurtainsSection";
@@ -18,6 +20,7 @@ const Index = () => {
       <div id="home">
         <HeroSection />
       </div>
+      <IntroCard />
       <PhilosophySection />
       <GlobalSyncSection />
       <FounderSection />
@@ -26,6 +29,9 @@ const Index = () => {
       </div>
       <div id="skills">
         <SkillsSection />
+      </div>
+      <div id="experience">
+        <WorkExperienceSection />
       </div>
       <div id="about">
         <AboutSection />
