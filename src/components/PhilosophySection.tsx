@@ -14,8 +14,8 @@ const PhilosophySection = () => {
   const activeContent = tabs.find((t) => t.id === activeTab);
 
   return (
-    <section className="px-6 py-32 md:px-16">
-      <div className="mx-auto max-w-4xl">
+    <section className="px-6 py-24 md:px-16">
+      <div className="mx-auto max-w-6xl">
         <p className="section-label text-primary">UI Philosophy</p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
