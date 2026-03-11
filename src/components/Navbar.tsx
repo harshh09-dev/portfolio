@@ -42,14 +42,8 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 md:px-12"
     >
       {/* Logo */}
-      <Link to="/" className="flex items-center gap-3">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-card text-xs font-bold text-foreground">
-          PS
-        </div>
-        <div className="hidden sm:block">
-          <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">Creative Engineer</p>
-          <p className="text-[10px] font-semibold uppercase tracking-widest text-primary">Building the Future</p>
-        </div>
+      <Link to="/" className="font-display text-xl font-bold italic text-foreground tracking-tight">
+        A-VERSE
       </Link>
 
       {/* Desktop links */}
@@ -112,12 +106,14 @@ const Navbar = () => {
       </div>
 
       {/* CTA */}
-      <Link
-        to="/links"
+      <a
+        href="https://drive.google.com/file/d/your-resume-link"
+        target="_blank"
+        rel="noopener noreferrer"
         className="hidden rounded-full border border-border bg-card px-5 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary md:block"
       >
-        Book a Call
-      </Link>
+        RESUME
+      </a>
 
       {/* Mobile toggle */}
       <button

@@ -3,13 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WorkExperienceSection from "@/components/WorkExperienceSection";
 import BehindCurtainsSection from "@/components/BehindCurtainsSection";
-import { Linkedin, Github, Twitter } from "lucide-react";
-
-const lifestyleImages = [
-  { label: "EAT", src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" },
-  { label: "TRAVEL", src: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&q=80" },
-  { label: "CODE", src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80" },
-];
+import { Linkedin, Github, Instagram } from "lucide-react";
 
 const About = () => {
   return (
@@ -55,58 +49,46 @@ const About = () => {
           <div>
             <p className="text-xs uppercase tracking-widest text-primary">A LITTLE ABOUT ME</p>
             <h2 className="mt-2 text-3xl font-bold text-foreground md:text-4xl">
-              Nice to meet you. I'm <span className="text-primary">Parth</span>
+              Nice to meet you. I'm <span className="text-primary">Anjali</span>
             </h2>
           </div>
           <div className="space-y-4 text-muted-foreground">
             <p>
-              I transform complex ideas into high-speed, scalable web products. As an engineering-driven developer, I focus on the entire stack—prioritizing clean architecture, seamless performance, and modern solutions that drive real value.
+              I'm Anjali Kamal, a B.Tech student at IIIT Jabalpur with a strong interest in building structured, scalable software. I enjoy working across the full stack, solving DSA problems, and understanding how systems operate under the hood.
             </p>
             <p>
-              Beyond writing code, I understand the product lifecycle. As the founder of Rune, Rune AI, and Rune Hub, I've learned firsthand how to build, ship, and scale meaningful products in a fast-paced environment.
-            </p>
-            <p>
-              My philosophy is simple: build things that last. I help startups and businesses bridge the gap between concept and reality with code that performs.
+              My recent work spans full-stack web applications, embedded systems, and algorithm-driven platforms. I'm currently exploring data science, system design, and practical AI integration — focusing on building solutions that are useful, reliable, and scalable in real-world environments.
             </p>
             <div className="flex gap-4 pt-4">
-              <a href="https://linkedin.com/in/ksparth128" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border p-2.5 text-muted-foreground transition-colors hover:border-primary hover:text-primary">
+              <a href="https://www.linkedin.com/in/anjalikamal-ak3105/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border p-2.5 text-muted-foreground transition-colors hover:border-primary hover:text-primary">
                 <Linkedin className="h-4 w-4" />
               </a>
-              <a href="https://github.com/ksparth12" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border p-2.5 text-muted-foreground transition-colors hover:border-primary hover:text-primary">
+              <a href="https://github.com/A-verse" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border p-2.5 text-muted-foreground transition-colors hover:border-primary hover:text-primary">
                 <Github className="h-4 w-4" />
               </a>
-              <a href="https://x.com/ksparth12" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border p-2.5 text-muted-foreground transition-colors hover:border-primary hover:text-primary">
-                <Twitter className="h-4 w-4" />
+              <a href="https://instagram.com/anjalikamal3105" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border p-2.5 text-muted-foreground transition-colors hover:border-primary hover:text-primary">
+                <Instagram className="h-4 w-4" />
               </a>
             </div>
           </div>
         </motion.div>
 
-        {/* Lifestyle Images */}
+        {/* Image */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 grid grid-cols-3 gap-4"
+          className="mt-16 overflow-hidden rounded-2xl"
         >
-          {lifestyleImages.map((img) => (
-            <div key={img.label} className="group relative overflow-hidden rounded-2xl">
-              <img
-                src={img.src}
-                alt={img.label}
-                className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-background/80 to-transparent p-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-foreground">{img.label}</span>
-              </div>
-            </div>
-          ))}
+          <img
+            src="https://aversee.vercel.app/cyber-security-experts-working-with-tech-devices-neon-lights.jpg"
+            alt="Working with tech devices"
+            className="w-full object-cover rounded-2xl"
+          />
         </motion.div>
       </section>
 
-      {/* Work Experience */}
       <WorkExperienceSection />
-
       <BehindCurtainsSection />
       <Footer />
     </div>

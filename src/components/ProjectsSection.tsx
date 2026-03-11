@@ -3,64 +3,68 @@ import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "Rune",
+    title: "FocusMate",
     description:
-      "🚀 Rune is your all-in-one productivity toolkit featuring 100+ powerful tools for learning, creating, and working smarter.",
+      "Modular edge-computing system connecting physical workspace signals with intelligent digital automation.",
     bullets: [
-      "100+ free tools including text editors, PDF converters, and image processors",
-      "AI-powered tools for writing, summarizing, and content creation",
-      "Developer utilities with JSON formatter, regex tester, and code tools",
+      "Real-time presence monitoring and event-driven decision engine",
+      "Android control app for personalized focus management",
+      "Privacy-first architecture with fully local processing",
     ],
-    tags: ["React", "TypeScript", "Next.js", "Tailwind CSS", "OpenAI", "Framer Motion", "Node.js", "Vercel"],
-    link: "https://rune.codes/",
+    tags: ["Raspberry Pi", "Python", "Android", "Event-Driven Systems"],
+    link: "",
   },
   {
-    title: "RuneAI",
+    title: "JMRC Metro Services Portal",
     description:
-      "🚀 Rune AI featuring a powerful RAG system, three specialized models (Fast, Thinking, Pro), and a massive 500K context limit.",
+      "Scalable service management platform built with serverless APIs and algorithm-driven fare computation.",
     bullets: [
-      "Three specialized models: Fast (Groq), Thinking (Gemini), and Pro",
-      "Massive 500K context limit for deep document analysis",
-      "Advanced Web Search and intelligent automated Tool Calling",
+      "Designed route-based fare calculation engine with inter-line transfer logic",
+      "Implemented complaint lifecycle APIs with SLA breach monitoring",
+      "Built analytics dashboard with sentiment analysis and resolution tracking",
+      "Structured modular project architecture with type-safe APIs",
     ],
-    tags: ["LangGraph", "Tavily", "Appwrite", "Next.js", "Vercel"],
-    link: "https://ai.rune.codes/",
+    tags: ["Next.js 16", "TypeScript (Strict)", "Zod", "Serverless Functions", "Netlify"],
+    link: "https://jmrc-service-portal-nl7e.vercel.app/",
   },
   {
-    title: "RuneHub",
+    title: "FABRO",
     description:
-      "🚀 RuneHub is a comprehensive programming education platform featuring extensive tutorials and articles.",
+      "Modern e-commerce platform engineered for customization-first apparel ordering with performance-optimized architecture.",
     bullets: [
-      "Comprehensive programming tutorials and articles across multiple languages",
-      "Tech trends section with latest industry news and insights",
-      "Sanity CMS integration for efficient content management",
+      "Designed modular product + customization flow with dynamic state management",
+      "Implemented WhatsApp-integrated checkout logic with structured message payloads",
+      "Optimized image-heavy layout using Next.js image pipeline",
+      "Structured CMS-ready product schema with SEO metadata & JSON-LD",
     ],
-    tags: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Sanity CMS"],
-    link: "https://runehub.page/",
+    tags: ["Next.js (App Router)", "TypeScript", "Tailwind CSS", "Local State Architecture", "SEO Optimization"],
+    link: "https://fabro-handcrafted-indian-embroidery.vercel.app/",
   },
   {
-    title: "Old Portfolio",
+    title: "APS Official Website",
     description:
-      "🚀 A premium, high-performance portfolio crafted for the modern web with fluid GSAP animations.",
+      "Community-focused web platform engineered to streamline event communication and member engagement.",
     bullets: [
-      "Premium, high-performance design with fluid GSAP animations",
-      "Physics-based interactions and advanced state management",
-      "Robust full-stack architecture with Prisma and Node.js",
+      "Designed modular event and gallery components",
+      "Implemented structured routing for dynamic event detail pages",
+      "Integrated motion-based UI transitions for enhanced user experience",
+      "Built scalable layout structure for future forum and resource expansion",
     ],
-    tags: ["React", "TypeScript", "Next.js", "Node.js", "Tailwind CSS", "GSAP"],
-    link: "https://parthsharma.me/",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    link: "https://aps-iiitdmj.vercel.app/",
   },
   {
-    title: "Portfolio Template",
+    title: "Palate",
     description:
-      "🚀 A stunning, modern portfolio template designed to showcase creative work with elegance and style.",
+      "Scalable full-stack recipe management platform engineered with modern App Router architecture and typed API routes.",
     bullets: [
-      "Modern, responsive design with smooth animations and transitions",
-      "Clean aesthetic layout perfect for showcasing creative projects",
-      "Built with performance and accessibility in mind",
+      "Designed relational schema with Prisma ORM and PostgreSQL",
+      "Implemented protected API routes with Supabase authentication",
+      "Integrated cloud image storage with role-based access policies",
+      "Structured modular routing with Next.js App Router",
     ],
-    tags: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion", "Vercel"],
-    link: "https://parthsharma-ruby.vercel.app/",
+    tags: ["Next.js 14", "TypeScript", "Prisma", "PostgreSQL", "Supabase Auth", "Server Components"],
+    link: "https://palate-nu.vercel.app/",
   },
 ];
 
@@ -71,7 +75,7 @@ const ProjectsSection = () => {
         {/* Profile avatar + heading */}
         <div className="flex items-center gap-4">
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-sm font-bold text-foreground">
-            PS
+            AK
           </div>
           <div>
             <p className="section-label">Crafting modern experiences</p>
@@ -84,16 +88,16 @@ const ProjectsSection = () => {
           className="mt-6 text-4xl font-bold text-foreground md:text-6xl"
         >
           VENTURE{" "}
-          <span className="text-muted-foreground">SHOWCASE</span>
+          <span className="text-muted-foreground">Showcase</span>
         </motion.h2>
 
         <div className="mt-16 space-y-8">
           {projects.map((project, i) => (
             <motion.a
               key={project.title}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={project.link || undefined}
+              target={project.link ? "_blank" : undefined}
+              rel={project.link ? "noopener noreferrer" : undefined}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -102,7 +106,9 @@ const ProjectsSection = () => {
             >
               <div className="flex items-start justify-between">
                 <h3 className="text-2xl font-bold text-foreground md:text-3xl">{project.title}</h3>
-                <ExternalLink className="h-5 w-5 flex-shrink-0 text-muted-foreground transition-all group-hover:text-primary" />
+                {project.link && (
+                  <ExternalLink className="h-5 w-5 flex-shrink-0 text-muted-foreground transition-all group-hover:text-primary" />
+                )}
               </div>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {project.description}
@@ -130,6 +136,10 @@ const ProjectsSection = () => {
                 ))}
               </div>
 
+              {project.link && (
+                <p className="mt-4 text-xs font-medium text-primary">Live Demo →</p>
+              )}
+
               {/* Hover glow */}
               <div className="pointer-events-none absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-primary/5 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
             </motion.a>
@@ -139,7 +149,7 @@ const ProjectsSection = () => {
         {/* See more */}
         <div className="mt-10 text-center">
           <a
-            href="https://github.com/ksparth12"
+            href="https://github.com/A-verse"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"

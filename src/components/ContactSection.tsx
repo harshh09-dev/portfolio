@@ -19,11 +19,11 @@ const ContactSection = () => {
             <span className="font-display italic">that actually works.</span>
           </h2>
           <a
-            href="mailto:hello@parthh.in"
+            href="mailto:anjalikamal3105@gmail.com"
             className="mt-8 inline-flex items-center gap-3 rounded-full border border-border bg-card px-8 py-4 text-lg font-medium text-foreground transition-all hover:border-primary hover:shadow-[0_0_30px_-8px_hsl(142,71%,45%,0.3)]"
           >
             <Mail className="h-5 w-5 text-primary" />
-            hello@parthh.in
+            anjalikamal3105@gmail.com
           </a>
         </motion.div>
       </div>

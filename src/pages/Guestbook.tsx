@@ -4,14 +4,14 @@ import Footer from "@/components/Footer";
 import { Github } from "lucide-react";
 
 const signatures = [
-  { name: "Parth Sharma", date: "Dec 31", message: "Welcome ❤️", pinned: true },
-  { name: "Laura", date: "Feb 22", message: "Amazing UI and smooth interactions! Loved it!" },
-  { name: "Kaushal S", date: "Feb 22", message: "Nice Site !" },
-  { name: "Dhruv Sharma", date: "Feb 21", message: "Great and inspiring work buddy ! 👍" },
-  { name: "Prashant Chouhan", date: "Feb 21", message: "lovelyyyy" },
-  { name: "chintan", date: "Feb 16", message: "Lovely site bro" },
-  { name: "Omkar", date: "Feb 16", message: "Kindly provide me with the code, sir." },
-  { name: "Sameer Sahu", date: "Feb 4", message: "Great work dude keep inspiring. Looking at ur UI design and smooth motions i must say u have great taste in designing. HOPE U DO GOOD.....", liked: true },
+  { name: "Anjali Kamal", date: "Mar 1", message: "Welcome to my space! ❤️", pinned: true },
+  { name: "Mayank K", date: "Feb 28", message: "Amazing portfolio! Clean design and smooth animations!" },
+  { name: "Aruna J", date: "Feb 25", message: "FABRO turned out beautiful, great work!" },
+  { name: "Sukriti J", date: "Feb 22", message: "Great work on the Robocon project! 🤖" },
+  { name: "Vishal", date: "Feb 20", message: "Inspiring portfolio, keep building!" },
+  { name: "Priya S", date: "Feb 18", message: "Love the attention to detail ✨" },
+  { name: "Rahul M", date: "Feb 15", message: "Clean code, clean design. Well done!" },
+  { name: "Shreya P", date: "Feb 10", message: "The animations are so smooth! Great work 🔥", liked: true },
 ];
 
 const Guestbook = () => {
@@ -20,7 +20,6 @@ const Guestbook = () => {
       <Navbar />
 
       <section className="mx-auto max-w-6xl px-6 pt-32 pb-24">
-        {/* Header */}
         <div className="grid gap-12 lg:grid-cols-[1fr_400px]">
           <div>
             <motion.p
@@ -81,9 +80,7 @@ const Guestbook = () => {
                 transition={{ delay: i * 0.05 }}
                 className="relative rounded-xl border border-border bg-card/30 p-5"
               >
-                {/* Quote mark */}
                 <span className="absolute right-4 top-4 font-serif text-4xl text-border/50">"</span>
-
                 <div className="flex items-center gap-3">
                   <div className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary text-xs font-bold text-foreground">
                     {sig.name.charAt(0)}
@@ -93,9 +90,7 @@ const Guestbook = () => {
                     <p className="font-mono text-[10px] uppercase text-muted-foreground">{sig.date}</p>
                   </div>
                 </div>
-
                 <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{sig.message}</p>
-
                 {sig.pinned && (
                   <div className="mt-4 border-t border-border pt-3">
                     <span className="text-[10px] font-medium text-primary">📌 Pinned</span>
@@ -103,7 +98,7 @@ const Guestbook = () => {
                 )}
                 {sig.liked && (
                   <div className="mt-4 flex items-center justify-between border-t border-border pt-3">
-                    <span className="text-[10px] font-medium text-primary">Liked by Parth</span>
+                    <span className="text-[10px] font-medium text-primary">Liked by Anjali</span>
                     <span className="text-sm">❤️</span>
                   </div>
                 )}

@@ -35,9 +35,9 @@ const GlobalSyncSection = () => {
           >
             <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-primary">Available Globally</p>
             <h3 className="text-2xl font-bold text-foreground">
-              Global <span className="font-display italic">Sync</span>
+              Adaptable across{" "}
+              <span className="font-display italic">time zones</span>
             </h3>
-            <p className="mt-2 text-sm text-muted-foreground">Adaptable across time zones</p>
 
             {/* Timezone badges */}
             <div className="mt-8 flex gap-4">
@@ -86,7 +86,7 @@ const GlobalSyncSection = () => {
                 Let's build something{" "}
                 <span className="font-display italic">that actually works.</span>
               </h3>
-              <p className="mt-3 text-sm text-muted-foreground">hello@parthh.in</p>
+              <p className="mt-3 text-sm text-muted-foreground">anjalikamal3105@gmail.com</p>
               <p className="mt-1 text-xs text-muted-foreground/60">Tap to copy email</p>
               <a
                 href="#contact"

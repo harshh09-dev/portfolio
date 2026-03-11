@@ -3,28 +3,49 @@ import { Briefcase } from "lucide-react";
 
 const experiences = [
   {
-    role: "Founder & Full Stack Developer",
-    company: "Rune",
-    period: "2023 – Present",
-    description:
-      "Building Rune ecosystem — Rune (100+ tools), Rune AI (RAG-powered assistant), and RuneHub (programming education platform). Managing full product lifecycle from design to deployment.",
-    tags: ["Next.js", "TypeScript", "LangGraph", "Vercel", "Appwrite"],
+    role: "Web Developer",
+    company: "FABRO",
+    period: "Feb 2026 – Present | Remote",
+    bullets: [
+      "Delivered a scalable e-commerce platform showcasing Indian embroidery through high-impact visual storytelling.",
+      "Improved user conversion flow by designing seamless cart and order workflows integrated with WhatsApp-based routing.",
+      "Built a maintainable TypeScript architecture to support future brand expansion and feature scaling.",
+    ],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Full-stack architecture", "Component architecture", "API integration", "State management"],
   },
   {
-    role: "Frontend Developer",
-    company: "Freelance",
-    period: "2022 – Present",
-    description:
-      "Delivering high-performance web applications for startups and businesses. Specializing in responsive UI, animations, and seamless user experiences.",
-    tags: ["React", "Tailwind CSS", "Framer Motion", "Node.js"],
+    role: "Software Developer",
+    company: "Jaipur Metro Rail Corporation (JMRC)",
+    period: "June 2025 – August 2025 | Jaipur",
+    bullets: [
+      "Improved operational efficiency by developing a voice detection module for CCS2300 counters within the Automatic Fare Collection system.",
+      "Enhanced issue resolution workflows by collaborating on a smart complaint & feedback portal for metro operations.",
+      "Bridged software and physical infrastructure systems by gaining hands-on exposure to SMPS and signaling components.",
+    ],
+    tags: ["System integration", "Hardware-software coordination", "Embedded systems integration", "Signal processing concepts", "Full-stack development", "Database workflows"],
   },
   {
-    role: "Full Stack Intern",
-    company: "Various Startups",
-    period: "2021 – 2022",
-    description:
-      "Contributed to frontend architecture and backend APIs. Gained hands-on experience in agile development, code reviews, and CI/CD pipelines.",
-    tags: ["React", "Express.js", "MongoDB", "Git"],
+    role: "Core Working Committee Member",
+    company: "Astronomy & Physics Society (APS), IIIT Jabalpur",
+    period: "August 2024 – April 2025",
+    bullets: [
+      "Increased student engagement in STEM activities by organizing and leading technical workshops and coding-based sessions.",
+      "Coordinated cross-functional teams to execute coding challenges, guest lectures, and physics-based technical events.",
+      "Streamlined event execution workflows by managing timelines, delegating responsibilities, and ensuring technical setup readiness.",
+      "Facilitated knowledge-sharing sessions on coding and technical concepts, strengthening peer learning and community engagement.",
+    ],
+    tags: ["Leadership", "Technical mentoring", "Public speaking", "Process management", "System thinking", "Event planning", "Team collaboration", "Agile coordination"],
+  },
+  {
+    role: "Open Source Contributor",
+    company: "GirlScript Summer of Code (GSSoC)",
+    period: "May 2024 – August 2024",
+    bullets: [
+      "Improved application performance and usability by contributing feature enhancements and bug fixes to production-level open-source repositories.",
+      "Strengthened code quality and maintainability through structured PR reviews and collaborative Git workflows.",
+      "Integrated third-party APIs and optimized UI responsiveness to enhance user experience.",
+    ],
+    tags: ["React", "Node.js", "TypeScript", "GitHub", "Version control", "API integration", "Frontend optimization", "Code reviews"],
   },
 ];
 
@@ -39,8 +60,8 @@ const WorkExperienceSection = () => {
           viewport={{ once: true }}
           className="mt-4 text-4xl font-bold leading-tight text-foreground md:text-5xl"
         >
-          Work{" "}
-          <span className="font-display italic">Experience</span>
+          Experience That Brings{" "}
+          <span className="font-display italic">Ideas to Life</span>
         </motion.h2>
 
         <div className="mt-12 space-y-0">
@@ -71,9 +92,14 @@ const WorkExperienceSection = () => {
                 </div>
               </div>
 
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {exp.description}
-              </p>
+              <ul className="mt-3 space-y-2">
+                {exp.bullets.map((bullet, j) => (
+                  <li key={j} className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground">
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary/60" />
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
 
               <div className="mt-4 flex flex-wrap gap-2">
                 {exp.tags.map((tag) => (
