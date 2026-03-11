@@ -29,10 +29,10 @@ const IntroCard = () => {
         >
           <div>
             <h2 className="text-2xl font-bold text-foreground md:text-3xl">
-              Parth Sharma
+              Anjali Kamal
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              Noida, IN • {formattedTime}
+              Jaipur, IN • {formattedTime}
             </p>
           </div>
           <div className="flex items-center gap-2">

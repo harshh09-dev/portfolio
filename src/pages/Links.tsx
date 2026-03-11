@@ -5,10 +5,10 @@ import BehindCurtainsSection from "@/components/BehindCurtainsSection";
 import { ArrowUpRight } from "lucide-react";
 
 const socialLinks = [
-  { id: "01", name: "GitHub", url: "https://github.com/ksparth12" },
-  { id: "02", name: "X", url: "https://x.com/ksparth12" },
-  { id: "03", name: "LinkedIn", url: "https://linkedin.com/in/ksparth128" },
-  { id: "04", name: "Email", url: "mailto:hello@parthh.in" },
+  { id: "01", name: "GitHub", url: "https://github.com/A-verse" },
+  { id: "02", name: "LinkedIn", url: "https://www.linkedin.com/in/anjalikamal-ak3105/" },
+  { id: "03", name: "Instagram", url: "https://instagram.com/anjalikamal3105" },
+  { id: "04", name: "Email", url: "mailto:anjalikamal3105@gmail.com" },
 ];
 
 const Links = () => {
@@ -17,7 +17,6 @@ const Links = () => {
       <Navbar />
 
       <section className="mx-auto max-w-5xl px-6 pt-32 pb-24">
-        {/* Header */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,22 +37,8 @@ const Links = () => {
               PRESENCE
             </h1>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4 }}
-            className="h-40 w-40 flex-shrink-0 overflow-hidden rounded-full border-2 border-border md:h-56 md:w-56"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
-              alt="Parth Sharma"
-              className="h-full w-full object-cover"
-            />
-          </motion.div>
         </div>
 
-        {/* Links List */}
         <div className="mt-16 divide-y divide-border border-t border-border">
           {socialLinks.map((link, i) => (
             <motion.a

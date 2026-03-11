@@ -19,7 +19,7 @@ const HeroSection = () => {
           delay={0.2}
           stagger={0.05}
         >
-          PARTH
+          ANJALI
         </TextReveal>
       </div>
 
@@ -30,7 +30,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-sm font-medium uppercase tracking-[0.3em] text-muted-foreground"
         >
-          I design and build products that
+          I design and build scalable systems that
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -38,7 +38,7 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 1.1 }}
           className="font-display mt-2 text-3xl italic text-foreground md:text-5xl"
         >
-          deliver real impact.
+          solve real-world problems.
         </motion.p>
       </div>
 
@@ -72,7 +72,7 @@ const HeroSection = () => {
           <div className="flex items-center gap-2 text-muted-foreground">
             <MapPin className="h-4 w-4 text-primary" />
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest">Based in Noida,</p>
+              <p className="text-xs font-semibold uppercase tracking-widest">Based in Jaipur,</p>
               <p className="text-xs uppercase tracking-widest">India</p>
             </div>
           </div>
@@ -82,7 +82,7 @@ const HeroSection = () => {
             <Code2 className="h-4 w-4 text-primary" />
             <div className="text-right">
               <p className="text-xs font-semibold uppercase tracking-widest">Full Stack Dev,</p>
-              <p className="text-xs uppercase tracking-widest">& Designer</p>
+              <p className="text-xs uppercase tracking-widest">& AI Engineer</p>
             </div>
           </div>
         </MagneticButton>

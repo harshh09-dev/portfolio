@@ -2,39 +2,39 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    name: "Gulshan Sharma",
-    role: "SDE II, Big4",
-    quote: "Parth's attention to detail and focus on creating smooth interfaces helped refine our work significantly. His frontend skills stand out clearly.",
+    name: "Mayank Kaushik",
+    role: "Co-Intern, JMRC",
+    quote: "Working with Anjali on the JMRC Services Portal was seamless. She structured the APIs and frontend logic clearly, making integration smooth and the system easy to scale.",
   },
   {
-    name: "Shashank Kumar",
-    role: "Senior Software Engineer, Cognizant",
-    quote: "Working with Parth has been genuinely positive. He brings strong frontend knowledge and fresh perspective to every problem, making collaboration smooth.",
+    name: "Aruna Jain",
+    role: "Founder, FABRO",
+    quote: "Anjali understood the vision behind FABRO and translated it into a clean, elegant digital experience. The customization flow and product presentation reflect thoughtful design and structured execution.",
   },
   {
-    name: "Armaan Singh",
-    role: "Technical Lead, Infosys",
-    quote: "Parth contributed solid improvements through structured approach and clear communication. He's someone you can rely on when building quality interfaces.",
+    name: "Natwar Lal Jain",
+    role: "DGM (S&T), Jaipur Metro Rail Corporation",
+    quote: "Anjali demonstrated a structured approach while working on the JMRC Services Portal. Her clarity in system design and attention to implementation details contributed meaningfully to the project.",
   },
   {
-    name: "Akshit Malik",
-    role: "Software Engineer III, Google",
-    quote: "Parth stands out as a reliable frontend contributor. His clean code and user-friendly interfaces consistently add value with dependable initiative.",
+    name: "Anil Sharma",
+    role: "Project Mentor, JMRC",
+    quote: "Anjali maintained a structured approach throughout the JMRC Services Portal project. Her clarity in system flow and implementation ensured steady progress and reliable results.",
   },
   {
-    name: "Yuvika Bhat",
-    role: "Product Manager, Amazon",
-    quote: "Parth is a great frontend developer who understood our needs and improved things effectively. His attention to detail made collaboration comfortable.",
+    name: "Sukriti Jha",
+    role: "Team Lead, Aikyam – ABU DD Robocon 2025",
+    quote: "Anjali contributed strong analytical thinking and structured calculations to the Robocon robot design. Her work on motion parameters and system integration added clarity and precision to our overall build.",
   },
   {
-    name: "Gaurav Pandey",
-    role: "Senior Developer, Microsoft",
-    quote: "Parth brings balanced technical understanding and practical thinking. His full-stack knowledge simplified complex ideas into elegant interfaces.",
+    name: "Prof. Shyam Kumar Chokka",
+    role: "Project Mentor (NeuroSpeak), IIIT Jabalpur",
+    quote: "Anjali demonstrated interdisciplinary thinking in the NeuroSpeak project, integrating AI concepts with system-level architecture. Her structured approach and technical clarity were commendable.",
   },
   {
-    name: "Awdhesh Mishra",
-    role: "Engineering Manager, Meta",
-    quote: "His structured, calm approach and understanding of frontend concepts helps move work forward efficiently.",
+    name: "Prof. Yashpal Singh Katharria",
+    role: "Project Supervisor (FocusMate), IIIT Jabalpur",
+    quote: "Anjali contributed meaningfully to the FocusMate team by bringing structured thinking to the system design and implementation. Her ability to coordinate hardware integration with software logic supported the overall success of the project.",
   },
 ];
 
@@ -66,7 +66,7 @@ const TestimonialsSection = () => {
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-sm font-bold text-foreground">
-                  {t.name.split(" ").map((n) => n[0]).join("")}
+                  {t.name.split(" ").map((n) => n[0]).join("").slice(0, 3)}
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-foreground">{t.name}</h4>
