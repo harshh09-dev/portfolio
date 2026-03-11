@@ -7,7 +7,7 @@ interface PreloaderProps {
 
 const Preloader = ({ onComplete }: PreloaderProps) => {
   const [phase, setPhase] = useState<"text" | "exit">("text");
-  const name = "PARTH SHARMA";
+  const name = "ANJALI KAMAL";
   const subtitle = "YOUR EXPERIENCE IS LOADING...";
 
   useEffect(() => {
