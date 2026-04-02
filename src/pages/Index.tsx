@@ -6,7 +6,10 @@ import GlobalSyncSection from "@/components/GlobalSyncSection";
 import FounderSection from "@/components/FounderSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
+import ServicesSection from "@/components/ServicesSection";
+import CreativeWorkSection from "@/components/CreativeWorkSection";
 import WorkExperienceSection from "@/components/WorkExperienceSection";
+import CurrentlyBuildingSection from "@/components/CurrentlyBuildingSection";
 import AboutSection from "@/components/AboutSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import BehindCurtainsSection from "@/components/BehindCurtainsSection";
@@ -22,20 +25,23 @@ const Index = () => {
       </div>
       <IntroCard />
       <PhilosophySection />
-      <GlobalSyncSection />
-      <FounderSection />
-      <div id="work">
-        <ProjectsSection />
+      <div id="about">
+        <AboutSection />
       </div>
       <div id="skills">
         <SkillsSection />
       </div>
+      <div id="work">
+        <ProjectsSection />
+      </div>
+      <ServicesSection />
+      <CreativeWorkSection />
+      <GlobalSyncSection />
+      <FounderSection />
       <div id="experience">
         <WorkExperienceSection />
       </div>
-      <div id="about">
-        <AboutSection />
-      </div>
+      <CurrentlyBuildingSection />
       <TestimonialsSection />
       <BehindCurtainsSection />
       <div id="contact">

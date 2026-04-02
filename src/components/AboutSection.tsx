@@ -1,15 +1,9 @@
 import { motion } from "framer-motion";
 
-const lifestyleImages = [
-  { label: "EAT", src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" },
-  { label: "TRAVEL", src: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&q=80" },
-  { label: "CODE", src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80" },
-];
-
 const AboutSection = () => {
   return (
     <section className="px-6 py-32 md:px-16">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-5xl">
         <p className="section-label">A little about me</p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -21,68 +15,62 @@ const AboutSection = () => {
           <span className="font-display italic">I'm Anjali</span>
         </motion.h2>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="mt-8 space-y-6 text-lg leading-relaxed text-muted-foreground"
-        >
-          <p>
-            I'm Anjali Kamal, a B.Tech student at IIIT Jabalpur with a strong interest in building structured, scalable software. I enjoy working across the full stack, solving DSA problems, and understanding how systems operate under the hood.
-          </p>
-          <p>
-            My recent work spans full-stack web applications, embedded systems, and algorithm-driven platforms. I'm currently exploring data science, system design, and practical AI integration — focusing on building solutions that are useful, reliable, and scalable in real-world environments.
-          </p>
-        </motion.div>
+        <div className="mt-12 grid gap-12 md:grid-cols-[1fr_1.2fr]">
+          {/* Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="overflow-hidden rounded-2xl border border-border"
+          >
+            <img
+              src="https://aversee.vercel.app/cyber-security-experts-working-with-tech-devices-neon-lights.jpg"
+              alt="Anjali Kamal working with technology"
+              className="aspect-[4/5] w-full object-cover"
+              loading="lazy"
+            />
+          </motion.div>
 
-        {/* Social links */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="mt-10 flex gap-6"
-        >
-          {[
-            { label: "LinkedIn", href: "https://www.linkedin.com/in/anjalikamal-ak3105/" },
-            { label: "GitHub", href: "https://github.com/A-verse" },
-            { label: "Instagram", href: "https://instagram.com/anjalikamal3105" },
-          ].map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
-            >
-              {link.label}
-            </a>
-          ))}
-        </motion.div>
-
-        {/* Lifestyle images */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-12 grid grid-cols-3 gap-4"
-        >
-          {lifestyleImages.map((img) => (
-            <div key={img.label} className="group relative overflow-hidden rounded-2xl">
-              <img
-                src={img.src}
-                alt={img.label}
-                className="aspect-[3/4] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-background/80 to-transparent p-4">
-                <p className="text-sm font-bold uppercase tracking-widest text-foreground">{img.label}</p>
-              </div>
+          {/* Story */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex flex-col justify-center"
+          >
+            <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
+              <p>
+                I'm <span className="font-semibold text-foreground">Anjali Kamal</span>, a BTech student at IIIT Jabalpur passionate about building digital experiences that combine creativity and technology.
+              </p>
+              <p>
+                My work spans across <span className="text-foreground">web development</span>, <span className="text-foreground">graphic design</span>, and <span className="text-foreground">visual storytelling</span> through photography. I enjoy transforming ideas into meaningful products that are both functional and aesthetically engaging.
+              </p>
+              <p>
+                Apart from coding, I love photography, creative writing and exploring aesthetic ideas that combine art with technology. Currently I'm exploring freelancing and building projects that solve real-world problems while maintaining strong visual design.
+              </p>
             </div>
-          ))}
-        </motion.div>
+
+            {/* Social links */}
+            <div className="mt-8 flex gap-4">
+              {[
+                { label: "LinkedIn", href: "https://www.linkedin.com/in/anjalikamal-ak3105/" },
+                { label: "GitHub", href: "https://github.com/A-verse" },
+                { label: "Instagram", href: "https://instagram.com/anjalikamal3105" },
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-border px-5 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-primary hover:text-primary"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

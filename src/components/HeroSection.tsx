@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { MapPin, Code2 } from "lucide-react";
+import { MapPin, ArrowDown } from "lucide-react";
 import HeroScene from "./HeroScene";
 import TextReveal from "./TextReveal";
 import MagneticButton from "./MagneticButton";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -10,43 +11,100 @@ const HeroSection = () => {
       {/* 3D Background */}
       <HeroScene />
 
-      {/* Gradient overlay for readability */}
+      {/* Gradient overlay */}
       <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-background/60 via-background/30 to-background" />
 
       <div className="relative z-10 text-center">
+        {/* Greeting */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-sm font-medium uppercase tracking-[0.3em] text-muted-foreground"
+        >
+          Hi, I'm
+        </motion.p>
+
+        {/* Name */}
         <TextReveal
-          className="hero-name text-foreground select-none"
-          delay={0.2}
+          className="hero-name mt-4 text-foreground select-none"
+          delay={0.4}
           stagger={0.05}
         >
           ANJALI
         </TextReveal>
-      </div>
 
-      <div className="relative z-10 mt-8 text-center">
+        {/* Positioning */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-sm font-medium uppercase tracking-[0.3em] text-muted-foreground"
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="mt-4 text-sm font-semibold uppercase tracking-[0.25em] text-primary"
         >
-          I design and build scalable systems that
+          Creative Developer • Designer • Visual Storyteller
         </motion.p>
+
+        {/* Tagline */}
         <motion.p
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 1, delay: 1.1 }}
-          className="font-display mt-2 text-3xl italic text-foreground md:text-5xl"
+          transition={{ duration: 1, delay: 1.2 }}
+          className="font-display mx-auto mt-6 max-w-2xl text-xl italic text-muted-foreground md:text-2xl"
         >
-          solve real-world problems.
+          I design and build digital experiences that combine technology, aesthetics and storytelling.
         </motion.p>
+
+        {/* BTech tag */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 0.6 }}
+          className="mt-4 text-xs uppercase tracking-[0.2em] text-muted-foreground/60"
+        >
+          BTech • IIIT Jabalpur
+        </motion.p>
+
+        {/* Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.7, duration: 0.6 }}
+          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+        >
+          <MagneticButton strength={0.15}>
+            <Link
+              to="/projects"
+              className="rounded-full bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_30px_-6px_hsl(142,71%,45%,0.4)]"
+            >
+              View Projects
+            </Link>
+          </MagneticButton>
+          <MagneticButton strength={0.15}>
+            <a
+              href="https://drive.google.com/file/d/your-resume-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-border bg-card px-8 py-3 text-sm font-semibold text-foreground transition-all hover:border-primary hover:text-primary"
+            >
+              Download Resume
+            </a>
+          </MagneticButton>
+          <MagneticButton strength={0.15}>
+            <a
+              href="#contact"
+              className="rounded-full border border-border px-8 py-3 text-sm font-medium text-muted-foreground transition-all hover:border-primary hover:text-primary"
+            >
+              Contact Me
+            </a>
+          </MagneticButton>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
+        transition={{ delay: 2.2, duration: 1 }}
         className="absolute bottom-24 z-10"
       >
         <motion.div
@@ -65,7 +123,7 @@ const HeroSection = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.5 }}
+        transition={{ duration: 0.8, delay: 1.8 }}
         className="absolute bottom-8 left-0 right-0 z-10 flex items-end justify-between px-8 md:px-16"
       >
         <MagneticButton strength={0.2}>
@@ -79,11 +137,8 @@ const HeroSection = () => {
         </MagneticButton>
         <MagneticButton strength={0.2}>
           <div className="flex items-center gap-2 text-muted-foreground">
-            <Code2 className="h-4 w-4 text-primary" />
-            <div className="text-right">
-              <p className="text-xs font-semibold uppercase tracking-widest">Full Stack Dev,</p>
-              <p className="text-xs uppercase tracking-widest">& AI Engineer</p>
-            </div>
+            <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+            <p className="text-xs font-semibold uppercase tracking-widest">Available for work</p>
           </div>
         </MagneticButton>
       </motion.div>

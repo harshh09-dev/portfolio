@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WorkExperienceSection from "@/components/WorkExperienceSection";
+import CreativeWorkSection from "@/components/CreativeWorkSection";
 import BehindCurtainsSection from "@/components/BehindCurtainsSection";
 import { Linkedin, Github, Instagram } from "lucide-react";
 
@@ -11,7 +12,7 @@ const About = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="flex min-h-screen flex-col items-center justify-center px-6 pt-24">
+      <section className="flex min-h-[80vh] flex-col items-center justify-center px-6 pt-24">
         <motion.h1
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -54,10 +55,13 @@ const About = () => {
           </div>
           <div className="space-y-4 text-muted-foreground">
             <p>
-              I'm Anjali Kamal, a B.Tech student at IIIT Jabalpur with a strong interest in building structured, scalable software. I enjoy working across the full stack, solving DSA problems, and understanding how systems operate under the hood.
+              I'm Anjali Kamal, a BTech student at IIIT Jabalpur passionate about building digital experiences that combine creativity and technology.
             </p>
             <p>
-              My recent work spans full-stack web applications, embedded systems, and algorithm-driven platforms. I'm currently exploring data science, system design, and practical AI integration — focusing on building solutions that are useful, reliable, and scalable in real-world environments.
+              My work spans across web development, graphic design, and visual storytelling through photography. I enjoy transforming ideas into meaningful products that are both functional and aesthetically engaging.
+            </p>
+            <p>
+              Apart from coding, I love photography, creative writing and exploring aesthetic ideas that combine art with technology. Currently I'm exploring freelancing and building projects that solve real-world problems while maintaining strong visual design.
             </p>
             <div className="flex gap-4 pt-4">
               <a href="https://www.linkedin.com/in/anjalikamal-ak3105/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border p-2.5 text-muted-foreground transition-colors hover:border-primary hover:text-primary">
@@ -88,6 +92,7 @@ const About = () => {
         </motion.div>
       </section>
 
+      <CreativeWorkSection />
       <WorkExperienceSection />
       <BehindCurtainsSection />
       <Footer />
