@@ -1,65 +1,65 @@
 import { motion } from "framer-motion";
+import { GraduationCap, Code, MapPin, Pen } from "lucide-react";
 import { useState, useEffect } from "react";
-import { GraduationCap, Code2, Palette, Camera, MapPin } from "lucide-react";
 
 const quickFacts = [
-  { icon: GraduationCap, label: "BTech Student – IIIT Jabalpur" },
-  { icon: Code2, label: "Full Stack Developer" },
-  { icon: Palette, label: "Graphic Designer" },
-  { icon: Camera, label: "Photographer" },
-  { icon: MapPin, label: "Based in India" },
+  { icon: GraduationCap, label: "Bachelors in Technology @ IIIT Jabalpur" },
+  { icon: Code, label: "Full Stack Developer" },
+  { icon: Pen, label: "Writer" },
+  { icon: MapPin, label: "Jaipur, India" },
 ];
 
 const IntroCard = () => {
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState("");
 
   useEffect(() => {
-    const interval = setInterval(() => setTime(new Date()), 1000);
+    const updateTime = () => {
+      const now = new Date();
+      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+      const ist = new Date(utc + 5.5 * 3600000);
+      setTime(
+        ist.toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: true,
+        })
+      );
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
   }, []);
 
-  const indiaTime = new Date(
-    time.getTime() + time.getTimezoneOffset() * 60000 + 5.5 * 3600000
-  );
-  const formattedTime = indiaTime.toLocaleTimeString("en-US", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true,
-  });
-
   return (
-    <section className="px-6 py-8 md:px-16">
+    <section className="px-6 py-16 md:px-16">
       <div className="mx-auto max-w-6xl">
-        {/* Quick Info Strip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="rounded-2xl border border-border bg-card px-6 py-5"
+          className="flex flex-wrap items-center gap-6 rounded-2xl border border-border bg-card/50 px-8 py-6"
         >
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            {quickFacts.map((fact) => (
-              <div key={fact.label} className="flex items-center gap-2">
-                <fact.icon className="h-4 w-4 text-primary" />
-                <span className="text-sm font-medium text-muted-foreground">{fact.label}</span>
-              </div>
-            ))}
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-sm font-medium text-muted-foreground">{formattedTime} IST</span>
+          {quickFacts.map((fact) => (
+            <div key={fact.label} className="flex items-center gap-2 text-sm text-muted-foreground">
+              <fact.icon className="h-4 w-4 text-primary" />
+              <span>{fact.label}</span>
             </div>
+          ))}
+          <div className="ml-auto flex items-center gap-2 text-sm text-muted-foreground">
+            <span className="text-primary font-mono">{time}</span>
+            <span>IST</span>
           </div>
         </motion.div>
 
-        {/* Brand statement */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-6 text-center text-sm font-medium italic tracking-wide text-muted-foreground/80"
+          className="mt-6 text-center text-sm italic text-muted-foreground"
         >
-          "Building experiences where technology meets creativity."
+          Building experiences where technology meets creativity.
         </motion.p>
       </div>
     </section>
