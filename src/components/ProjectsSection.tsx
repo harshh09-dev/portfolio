@@ -70,7 +70,7 @@ const ProjectsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-primary/50 hover:shadow-[0_0_40px_-12px_hsl(142,71%,45%,0.15)]"
+              className="group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-primary/50 hover:shadow-[0_0_40px_-12px_hsl(330,80%,60%,0.15)]"
             >
               {/* Screenshot */}
               <div className="relative h-56 w-full overflow-hidden md:h-72">
