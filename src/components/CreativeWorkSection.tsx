@@ -13,8 +13,8 @@ const creativeAreas = [
   },
   {
     icon: PenLine,
-    title: "Poetry & Writing",
-    description: "Expressing thoughts through words — exploring themes of technology, nature, and human connection.",
+    title: "Creative Writing",
+    description: "Expressing thoughts through words — exploring themes of technology, human connection, and storytelling.",
     images: [
       "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&q=80",
       "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&q=80",
@@ -62,7 +62,6 @@ const CreativeWorkSection = () => {
               transition={{ delay: i * 0.1 }}
               className="group overflow-hidden rounded-2xl border border-border bg-card"
             >
-              {/* Image gallery */}
               <div className="grid grid-cols-2 gap-1">
                 {area.images.map((img, j) => (
                   <div key={j} className="overflow-hidden">
