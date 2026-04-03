@@ -3,24 +3,21 @@ import { motion } from "framer-motion";
 const skillGroups = [
   {
     category: "Development",
-    color: "text-primary",
-    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "ReactJS", "NextJS", "Node.js", "Express.js", "PostgreSQL", "MongoDB", "Prisma", "Git", "Docker", "AWS", "Vercel", "Linux"],
+    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "ReactJS", "NextJS", "Node.js", "Express.js", "PostgreSQL", "MongoDB", "Prisma", "Git", "Docker", "AWS", "Vercel", "Linux", "Python", "REST APIs"],
   },
   {
     category: "Design",
-    color: "text-primary",
-    skills: ["UI/UX Design", "Graphic Design", "Branding", "Figma", "Poster Design", "Logo Design"],
+    skills: ["Figma", "Graphic Design", "Poster Design", "Logo Design", "Branding"],
   },
   {
     category: "Creative",
-    color: "text-primary",
-    skills: ["Photography", "Photo Editing", "Content Writing", "Visual Storytelling", "Creative Direction"],
+    skills: ["Photography", "Photo Editing", "Creative Writing", "Technical Writing", "Visual Storytelling"],
   },
 ];
 
 const words = [
-  "User-Friendly", "Adaptive", "Fluid", "Future-Proof",
-  "SEO-Ready", "Immersive", "Protected", "Dependable", "Captivating",
+  "Scalable", "Adaptive", "Fluid", "Future-Proof",
+  "SEO-Ready", "Performant", "Secure", "Dependable", "Full-Stack",
 ];
 
 const SkillsSection = () => {
@@ -33,7 +30,6 @@ const SkillsSection = () => {
           <span className="text-muted-foreground">The Magic Behind</span>
         </h2>
 
-        {/* Skills by category */}
         <div className="mt-16 space-y-12">
           {skillGroups.map((group, gi) => (
             <motion.div
@@ -60,7 +56,6 @@ const SkillsSection = () => {
           ))}
         </div>
 
-        {/* Tech stack animation strip */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -69,7 +64,7 @@ const SkillsSection = () => {
         >
           <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Tools I Use</p>
           <div className="flex flex-wrap gap-3">
-            {["React", "Next.js", "Figma", "Photoshop", "VS Code", "Git", "Tailwind CSS", "Framer Motion", "Prisma", "PostgreSQL"].map((tool) => (
+            {["React", "Next.js", "Node.js", "PostgreSQL", "Figma", "VS Code", "Git", "Tailwind CSS", "Docker", "Prisma", "Postman"].map((tool) => (
               <span key={tool} className="rounded-full bg-secondary px-4 py-2 text-xs font-semibold text-foreground">
                 {tool}
               </span>
@@ -78,7 +73,6 @@ const SkillsSection = () => {
         </motion.div>
       </div>
 
-      {/* Marquee */}
       <div className="mt-20 border-y border-border py-5">
         <div className="animate-marquee flex whitespace-nowrap">
           {[...words, ...words].map((word, i) => (

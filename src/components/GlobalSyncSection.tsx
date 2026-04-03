@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Globe, Clock } from "lucide-react";
+import { Globe } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const timezones = [
@@ -26,7 +26,6 @@ const GlobalSyncSection = () => {
     <section className="px-6 py-24 md:px-16">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-6 md:grid-cols-2">
-          {/* Left - Clock */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -38,14 +37,9 @@ const GlobalSyncSection = () => {
               Adaptable across{" "}
               <span className="font-display italic">time zones</span>
             </h3>
-
-            {/* Timezone badges */}
             <div className="mt-8 flex gap-4">
               {timezones.map((tz) => (
-                <div
-                  key={tz.code}
-                  className="flex flex-col items-center gap-2 rounded-xl border border-border bg-secondary px-5 py-3"
-                >
+                <div key={tz.code} className="flex flex-col items-center gap-2 rounded-xl border border-border bg-secondary px-5 py-3">
                   <span className="text-2xl">{tz.flag}</span>
                   <p className="text-xs font-semibold text-foreground">{tz.label}</p>
                   <p className="text-[10px] text-muted-foreground">{getTimeForOffset(tz.offset)}</p>
@@ -54,7 +48,6 @@ const GlobalSyncSection = () => {
             </div>
           </motion.div>
 
-          {/* Right - Availability */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -90,7 +83,7 @@ const GlobalSyncSection = () => {
               <p className="mt-1 text-xs text-muted-foreground/60">Tap to copy email</p>
               <a
                 href="#contact"
-                className="mt-4 inline-block rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_20px_-4px_hsl(142,71%,45%,0.4)]"
+                className="mt-4 inline-block rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_20px_-4px_hsl(330,80%,60%,0.4)]"
               >
                 Connect Now
               </a>

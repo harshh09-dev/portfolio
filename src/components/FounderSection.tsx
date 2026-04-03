@@ -11,20 +11,18 @@ const FounderSection = () => {
           className="overflow-hidden rounded-2xl border border-border bg-card p-8 md:p-12"
         >
           <div className="grid items-center gap-10 md:grid-cols-2">
-            {/* Left text */}
             <div>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-sm font-bold text-foreground mb-4">
                 AK
               </div>
               <h3 className="text-3xl font-bold text-foreground md:text-4xl">
-                Crafting <span className="text-primary">modern</span> experiences
+                Crafting <span className="text-primary">scalable</span> systems
               </h3>
               <p className="mt-2 font-mono text-sm text-muted-foreground">
-                {"< Building Scalable Systems />"}
+                {"< Full Stack Developer />"}
               </p>
             </div>
 
-            {/* Right - Image */}
             <div className="flex justify-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -34,7 +32,7 @@ const FounderSection = () => {
               >
                 <img
                   src="https://aversee.vercel.app/cyber-security-experts-working-with-tech-devices-neon-lights.jpg"
-                  alt="Cyber security experts working with tech devices"
+                  alt="Tech workspace"
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
