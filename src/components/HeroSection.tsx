@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { MapPin, ArrowDown } from "lucide-react";
+import { MapPin } from "lucide-react";
 import HeroScene from "./HeroScene";
 import TextReveal from "./TextReveal";
 import MagneticButton from "./MagneticButton";
-import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -41,7 +40,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.9 }}
           className="mt-4 text-sm font-semibold uppercase tracking-[0.25em] text-primary"
         >
-          Creative Developer • Designer • Visual Storyteller
+          Full Stack Developer • Writer • Visual Storyteller
         </motion.p>
 
         {/* Tagline */}
@@ -54,47 +53,21 @@ const HeroSection = () => {
           I design and build digital experiences that combine technology, aesthetics and storytelling.
         </motion.p>
 
-        {/* BTech tag */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.6 }}
-          className="mt-4 text-xs uppercase tracking-[0.2em] text-muted-foreground/60"
-        >
-          BTech • IIIT Jabalpur
-        </motion.p>
-
-        {/* Buttons */}
+        {/* Resume Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.7, duration: 0.6 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          transition={{ delay: 1.5, duration: 0.6 }}
+          className="mt-10"
         >
-          <MagneticButton strength={0.15}>
-            <Link
-              to="/projects"
-              className="rounded-full bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_30px_-6px_hsl(142,71%,45%,0.4)]"
-            >
-              View Projects
-            </Link>
-          </MagneticButton>
           <MagneticButton strength={0.15}>
             <a
               href="https://drive.google.com/file/d/your-resume-link"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-border bg-card px-8 py-3 text-sm font-semibold text-foreground transition-all hover:border-primary hover:text-primary"
+              className="rounded-full bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_30px_-6px_hsl(330,80%,60%,0.4)]"
             >
               Download Resume
-            </a>
-          </MagneticButton>
-          <MagneticButton strength={0.15}>
-            <a
-              href="#contact"
-              className="rounded-full border border-border px-8 py-3 text-sm font-medium text-muted-foreground transition-all hover:border-primary hover:text-primary"
-            >
-              Contact Me
             </a>
           </MagneticButton>
         </motion.div>
@@ -138,7 +111,7 @@ const HeroSection = () => {
         <MagneticButton strength={0.2}>
           <div className="flex items-center gap-2 text-muted-foreground">
             <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-            <p className="text-xs font-semibold uppercase tracking-widest">Available for work</p>
+            <p className="text-xs font-semibold uppercase tracking-widest">Full Stack Developer</p>
           </div>
         </MagneticButton>
       </motion.div>

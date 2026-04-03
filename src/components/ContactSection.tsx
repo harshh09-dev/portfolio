@@ -29,18 +29,16 @@ const ContactSection = () => {
             Whether it's a project, collaboration, or just a conversation about technology and creativity — I'd love to connect.
           </p>
 
-          {/* Email */}
           <MagneticButton strength={0.1}>
             <a
               href="mailto:anjalikamal3105@gmail.com"
-              className="mt-8 inline-flex items-center gap-3 rounded-full border border-border bg-card px-8 py-4 text-lg font-medium text-foreground transition-all hover:border-primary hover:shadow-[0_0_30px_-8px_hsl(142,71%,45%,0.3)]"
+              className="mt-8 inline-flex items-center gap-3 rounded-full border border-border bg-card px-8 py-4 text-lg font-medium text-foreground transition-all hover:border-primary hover:shadow-[0_0_30px_-8px_hsl(330,80%,60%,0.3)]"
             >
               <Mail className="h-5 w-5 text-primary" />
               anjalikamal3105@gmail.com
             </a>
           </MagneticButton>
 
-          {/* Social links */}
           <div className="mt-8 flex justify-center gap-4">
             {socials.map((social) => (
               <MagneticButton key={social.label} strength={0.15}>
@@ -57,7 +55,6 @@ const ContactSection = () => {
             ))}
           </div>
 
-          {/* Get In Touch CTA */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -68,7 +65,7 @@ const ContactSection = () => {
             <MagneticButton strength={0.15}>
               <a
                 href="mailto:anjalikamal3105@gmail.com"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-10 py-4 text-sm font-bold text-primary-foreground transition-all hover:shadow-[0_0_30px_-6px_hsl(142,71%,45%,0.5)]"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-10 py-4 text-sm font-bold text-primary-foreground transition-all hover:shadow-[0_0_30px_-6px_hsl(330,80%,60%,0.5)]"
               >
                 Get In Touch
                 <ArrowUpRight className="h-4 w-4" />

@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import WorkExperienceSection from "@/components/WorkExperienceSection";
 import CreativeWorkSection from "@/components/CreativeWorkSection";
 import BehindCurtainsSection from "@/components/BehindCurtainsSection";
-import { Linkedin, Github, Instagram } from "lucide-react";
 
 const About = () => {
   return (
@@ -55,29 +54,28 @@ const About = () => {
           </div>
           <div className="space-y-4 text-muted-foreground">
             <p>
-              I'm Anjali Kamal, a BTech student at IIIT Jabalpur passionate about building digital experiences that combine creativity and technology.
+              I'm Anjali Kamal, a BTech student at IIIT Jabalpur passionate about building full-stack applications that combine clean architecture with great user experiences.
             </p>
             <p>
-              My work spans across web development, graphic design, and visual storytelling through photography. I enjoy transforming ideas into meaningful products that are both functional and aesthetically engaging.
+              My work spans across full-stack web development, backend system design, and creative writing. I enjoy transforming complex problems into elegant, scalable solutions that real users love.
             </p>
             <p>
-              Apart from coding, I love photography, creative writing and exploring aesthetic ideas that combine art with technology. Currently I'm exploring freelancing and building projects that solve real-world problems while maintaining strong visual design.
+              Apart from coding, I love photography, creative writing and exploring ideas that blend technology with storytelling. Currently I'm building projects that solve real-world problems and exploring freelancing opportunities.
             </p>
             <div className="flex gap-4 pt-4">
-              <a href="https://www.linkedin.com/in/anjalikamal-ak3105/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border p-2.5 text-muted-foreground transition-colors hover:border-primary hover:text-primary">
-                <Linkedin className="h-4 w-4" />
-              </a>
-              <a href="https://github.com/A-verse" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border p-2.5 text-muted-foreground transition-colors hover:border-primary hover:text-primary">
-                <Github className="h-4 w-4" />
-              </a>
-              <a href="https://instagram.com/anjalikamal3105" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border p-2.5 text-muted-foreground transition-colors hover:border-primary hover:text-primary">
-                <Instagram className="h-4 w-4" />
-              </a>
+              {[
+                { label: "LinkedIn", href: "https://www.linkedin.com/in/anjalikamal-ak3105/" },
+                { label: "GitHub", href: "https://github.com/A-verse" },
+                { label: "Instagram", href: "https://instagram.com/anjalikamal3105" },
+              ].map((link) => (
+                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="rounded-full border border-border px-4 py-2 text-xs font-medium text-muted-foreground transition-colors hover:border-primary hover:text-primary">
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
         </motion.div>
 
-        {/* Image */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -6,67 +6,67 @@ import { ArrowUpRight } from "lucide-react";
 
 const blogPosts = [
   {
-    date: "Feb 5, 2026",
+    date: "Mar 15, 2026",
+    readTime: "5 min read",
+    title: "Building Scalable APIs with Node.js and PostgreSQL",
+    description: "A practical guide to designing RESTful APIs that handle real traffic. From connection pooling to query optimization — lessons from building production systems.",
+    tags: ["Node.js", "PostgreSQL", "Backend", "API Design"],
+  },
+  {
+    date: "Feb 28, 2026",
     readTime: "6 min read",
-    title: "Hands-On with Claude Opus 4.6 vs Gemini 3 Pro vs GPT-5.2",
-    description: "I tested Anthropic's newest Claude Opus 4.6 against Gemini 3 Pro and GPT-5.2 in a real 3-prompt product prototype. Here's what actually worked and where each model excels.",
-    tags: ["AI", "Claude", "Gemini 3 Pro", "GPT-5.2", "Coding"],
+    title: "React Server Components vs Client Components: When to Use What",
+    description: "Breaking down the mental model behind RSC. Real examples from my projects showing when server rendering actually matters and when it's overkill.",
+    tags: ["React", "Next.js", "Performance", "Full Stack"],
   },
   {
-    date: "Jan 30, 2026",
-    readTime: "3 min read",
-    title: "Typography as Interface: Why Inter and Outfit Rule the Web",
-    description: "Why I chose Inter and Outfit for my portfolio and Rune AI. A deep dive into font functionality, readability at scale, and how typography defines digital product identity.",
-    tags: ["design", "typography", "ui-ux", "branding"],
+    date: "Feb 5, 2026",
+    readTime: "4 min read",
+    title: "My Full Stack Tech Stack for 2026 and Why",
+    description: "React, Node.js, PostgreSQL, Prisma, Tailwind — why I chose each tool and how they work together. A pragmatic guide for fellow developers.",
+    tags: ["Tech Stack", "React", "Node.js", "Developer Tools"],
   },
   {
-    date: "Dec 31, 2025",
-    readTime: "2 min read",
-    title: "Designing Fluid Interfaces: My Approach to Animation",
-    description: "Moving beyond 'making things move' to 'making things feel'. A deep dive into physics-based animation, Framer Motion, and creating emotional connections with UI.",
-    tags: ["design", "animation", "framer-motion", "ui-ux"],
-  },
-  {
-    date: "Dec 31, 2025",
+    date: "Jan 20, 2026",
     readTime: "3 min read",
     title: "How I Approach a Problem Before Writing Code",
     description: "Stop coding immediately. Learn the 80/20 rule of software engineering: 80% planning, 20% typing. A guide to thinking like a senior engineer.",
     tags: ["Engineering", "Productivity", "System Design"],
   },
   {
-    date: "Dec 31, 2025",
-    readTime: "3 min read",
-    title: "My Current Tech Stack & Why I Chose It",
-    description: "A deep dive into my preferred tools and technologies for 2026, focusing on performance, scalability, and developer experience.",
-    tags: ["tech-stack", "nextjs", "react", "typescript"],
+    date: "Jan 5, 2026",
+    readTime: "5 min read",
+    title: "Authentication Done Right: JWT, Sessions, and OAuth",
+    description: "Implementing auth from scratch vs using libraries. Security pitfalls I've encountered and how to avoid them in your full-stack apps.",
+    tags: ["Authentication", "Security", "Backend", "Node.js"],
   },
   {
     date: "Dec 31, 2025",
     readTime: "3 min read",
     title: "The Reality of Shipping Products as a Student in India",
-    description: "Balancing a Computer Science degree with a growing portfolio of side projects. From tutorial hell to shipping Rune.codes, here is my story.",
-    tags: ["student-dev", "indie-hacking", "india"],
+    description: "Balancing a Computer Science degree with a growing portfolio of side projects. From tutorial hell to shipping real products, here is my story.",
+    tags: ["Student Dev", "Indie Hacking", "Career"],
   },
   {
-    date: "Dec 31, 2025",
-    readTime: "2 min read",
-    title: "The Solo Developer's Toolkit (2026 Edition)",
-    description: "The non-code tools that keep me productive, organized, and sane. A curated list of software for design, planning, and testing.",
-    tags: ["productivity", "tools", "workflow"],
+    date: "Dec 15, 2025",
+    readTime: "4 min read",
+    title: "Database Design Patterns Every Developer Should Know",
+    description: "Normalization, indexing, and query optimization. Practical patterns I use in every project to keep databases fast and maintainable.",
+    tags: ["Database", "PostgreSQL", "System Design", "Backend"],
   },
   {
-    date: "Dec 31, 2025",
+    date: "Dec 1, 2025",
     readTime: "3 min read",
-    title: "Things I Wish I Knew Before Starting to Code",
-    description: "Key lessons learned from my coding journey to help beginners avoid common pitfalls and accelerate their learning.",
-    tags: ["career", "advice", "beginners"],
+    title: "Why I Built FocusMate: Solving My Own Productivity Problem",
+    description: "The story behind building a privacy-focused digital wellbeing system. From the frustration of constant distractions to engineering a hardware-software solution.",
+    tags: ["Projects", "Raspberry Pi", "Python", "Case Study"],
   },
   {
-    date: "Dec 31, 2025",
+    date: "Nov 15, 2025",
     readTime: "2 min read",
-    title: "Why I Built dsa-hub: Solving My Own Problem",
-    description: "The story behind building a real-time collaborative code editor for DSA practice. From the frustration of scattered resources to learning WebSockets and CRDTs.",
-    tags: ["projects", "websockets", "react", "case-study"],
+    title: "Things I Wish I Knew Before Starting Full Stack Development",
+    description: "Key lessons learned from my coding journey — from debugging nightmares to deployment wins. Honest advice for aspiring full-stack developers.",
+    tags: ["Career", "Advice", "Full Stack"],
   },
 ];
 
@@ -99,7 +99,7 @@ const Blogs = () => {
           transition={{ delay: 0.5, duration: 0.6 }}
           className="mt-2 font-serif text-3xl italic text-foreground/80 md:text-4xl"
         >
-          insights i share.
+          engineering insights.
         </motion.p>
       </section>
 

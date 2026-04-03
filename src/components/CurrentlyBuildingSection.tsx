@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Rocket, ArrowUpRight } from "lucide-react";
+import { Rocket } from "lucide-react";
 
 const CurrentlyBuildingSection = () => {
   return (

@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { Globe, Palette, Camera, Layout, PenTool, Figma } from "lucide-react";
+import { Globe, Layout, Code, Server, Camera, PenTool } from "lucide-react";
 
 const services = [
   {
     icon: Globe,
-    title: "Website Development",
-    description: "Full-stack web applications built with modern frameworks, optimized for performance and scalability.",
+    title: "Full Stack Development",
+    description: "End-to-end web applications built with React, Node.js, and modern databases — optimized for performance and scalability.",
   },
   {
     icon: Layout,
@@ -13,14 +13,14 @@ const services = [
     description: "Custom portfolio sites that showcase your work with stunning visuals and smooth interactions.",
   },
   {
-    icon: Palette,
-    title: "Graphic Design",
-    description: "Brand identity, marketing collateral, and visual assets that communicate your message effectively.",
+    icon: Code,
+    title: "Frontend Engineering",
+    description: "Pixel-perfect, responsive interfaces with React, TypeScript, and Tailwind CSS — fast and accessible.",
   },
   {
-    icon: PenTool,
-    title: "Poster & Logo Design",
-    description: "Eye-catching posters and memorable logos that define your brand's visual identity.",
+    icon: Server,
+    title: "Backend & APIs",
+    description: "RESTful APIs, database design, authentication systems, and server-side logic with Node.js and PostgreSQL.",
   },
   {
     icon: Camera,
@@ -28,9 +28,9 @@ const services = [
     description: "Visual storytelling through photography — product shots, portraits, and creative compositions.",
   },
   {
-    icon: Figma,
-    title: "UI/UX Design",
-    description: "User-centered interface design with wireframes, prototypes, and polished design systems.",
+    icon: PenTool,
+    title: "Content & Technical Writing",
+    description: "Blog posts, documentation, and creative writing that communicate complex ideas simply and effectively.",
   },
 ];
 
@@ -57,7 +57,7 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="group rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_-10px_hsl(142,71%,45%,0.12)]"
+              className="group rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_-10px_hsl(330,80%,60%,0.12)]"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                 <service.icon className="h-6 w-6" />
@@ -68,7 +68,6 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -77,7 +76,7 @@ const ServicesSection = () => {
         >
           <a
             href="#contact"
-            className="inline-block rounded-full bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_30px_-6px_hsl(142,71%,45%,0.4)]"
+            className="inline-block rounded-full bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_30px_-6px_hsl(330,80%,60%,0.4)]"
           >
             Let's Work Together
           </a>
