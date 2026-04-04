@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 const skillGroups = [
   {
     category: "Development",
-    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "ReactJS", "NextJS", "Node.js", "Express.js", "PostgreSQL", "MongoDB", "Prisma", "Git", "Docker", "AWS", "Vercel", "Linux", "Python", "REST APIs"],
+    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "Express.js", "PostgreSQL", "MongoDB", "Prisma", "Git", "Docker", "AWS", "Python", "REST APIs"],
   },
   {
     category: "Design",
-    skills: ["Figma", "Graphic Design", "Poster Design", "Logo Design", "Branding"],
+    skills: ["Figma", "Graphic Design", "Poster Design", "Logo Design", "Branding", "UI/UX"],
   },
   {
     category: "Creative",
@@ -15,9 +15,20 @@ const skillGroups = [
   },
 ];
 
-const words = [
+const coreStrengths = [
+  "System Design",
+  "Clean Architecture",
+  "API Design",
+  "Database Modeling",
+  "Performance Optimization",
+  "Problem Solving",
+  "Technical Documentation",
+  "Agile Development",
+];
+
+const marqueeWords = [
   "Scalable", "Adaptive", "Fluid", "Future-Proof",
-  "SEO-Ready", "Performant", "Secure", "Dependable", "Full-Stack",
+  "SEO-Ready", "Performant", "Secure", "Full-Stack",
 ];
 
 const SkillsSection = () => {
@@ -44,23 +55,46 @@ const SkillsSection = () => {
               </h3>
               <div className="flex flex-wrap gap-3">
                 {group.skills.map((skill) => (
-                  <span
+                  <motion.span
                     key={skill}
-                    className="rounded-xl border border-border bg-card px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/50 hover:text-primary"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground transition-all duration-200 hover:border-primary/50 hover:text-primary hover:shadow-[0_0_20px_-6px_hsl(var(--primary)/0.2)]"
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </motion.div>
           ))}
         </div>
 
+        {/* Core Strengths */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16 rounded-2xl border border-border bg-card p-6"
+        >
+          <p className="mb-4 text-xs font-bold uppercase tracking-widest text-primary">Core Strengths</p>
+          <div className="flex flex-wrap gap-3">
+            {coreStrengths.map((strength) => (
+              <motion.span
+                key={strength}
+                whileHover={{ scale: 1.05 }}
+                className="rounded-full bg-primary/10 border border-primary/20 px-4 py-2 text-xs font-semibold text-primary transition-all hover:bg-primary hover:text-primary-foreground"
+              >
+                {strength}
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Tools */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-16 rounded-2xl border border-border bg-card p-6"
+          className="mt-6 rounded-2xl border border-border bg-card p-6"
         >
           <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Tools I Use</p>
           <div className="flex flex-wrap gap-3">
@@ -73,9 +107,10 @@ const SkillsSection = () => {
         </motion.div>
       </div>
 
+      {/* Marquee */}
       <div className="mt-20 border-y border-border py-5">
         <div className="animate-marquee flex whitespace-nowrap">
-          {[...words, ...words].map((word, i) => (
+          {[...marqueeWords, ...marqueeWords].map((word, i) => (
             <span key={i} className="mx-6 flex items-center gap-4 text-lg font-semibold uppercase tracking-wider text-muted-foreground">
               {word}
               <span className="text-primary">✦</span>

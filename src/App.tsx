@@ -7,10 +7,12 @@ import { useState, useCallback } from "react";
 import { AnimatePresence } from "framer-motion";
 import Preloader from "./components/Preloader";
 import CustomCursor from "./components/CustomCursor";
+import ScrollProgress from "./components/ScrollProgress";
 import PageTransition from "./components/PageTransition";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
+import ProjectDetail from "./pages/ProjectDetail";
 import Blogs from "./pages/Blogs";
 import Links from "./pages/Links";
 import Uses from "./pages/Uses";
@@ -28,6 +30,7 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<PageTransition><Index /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
+        <Route path="/projects/:id" element={<PageTransition><ProjectDetail /></PageTransition>} />
         <Route path="/blogs" element={<PageTransition><Blogs /></PageTransition>} />
         <Route path="/links" element={<PageTransition><Links /></PageTransition>} />
         <Route path="/uses" element={<PageTransition><Uses /></PageTransition>} />
@@ -51,6 +54,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <CustomCursor />
+        <ScrollProgress />
         {loading && <Preloader onComplete={handleLoadComplete} />}
         <BrowserRouter>
           <AnimatedRoutes />
