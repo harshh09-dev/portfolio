@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 const mainLinks = [
   { label: "Home", href: "/" },
@@ -41,10 +42,13 @@ const Navbar = () => {
       transition={{ duration: 0.6 }}
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 md:px-12"
     >
-      {/* Logo */}
-      <Link to="/" className="font-display text-xl font-bold italic text-foreground tracking-tight">
-        A-VERSE
-      </Link>
+      {/* Left: Theme Toggle + Logo */}
+      <div className="flex items-center gap-3">
+        <ThemeToggle />
+        <Link to="/" className="font-display text-xl font-bold italic text-foreground tracking-tight">
+          A-VERSE
+        </Link>
+      </div>
 
       {/* Desktop links */}
       <div className="hidden items-center gap-1 rounded-full border border-border bg-card/80 px-2 py-1 backdrop-blur-md md:flex">
@@ -62,7 +66,6 @@ const Navbar = () => {
           </Link>
         ))}
 
-        {/* More dropdown */}
         <div ref={moreRef} className="relative">
           <button
             onClick={() => setMoreOpen(!moreOpen)}

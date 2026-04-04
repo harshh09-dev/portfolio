@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { MapPin, Camera } from "lucide-react";
 import HeroScene from "./HeroScene";
 import TextReveal from "./TextReveal";
 import MagneticButton from "./MagneticButton";
@@ -7,14 +7,10 @@ import MagneticButton from "./MagneticButton";
 const HeroSection = () => {
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
-      {/* 3D Background */}
       <HeroScene />
-
-      {/* Gradient overlay */}
       <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-background/60 via-background/30 to-background" />
 
       <div className="relative z-10 text-center">
-        {/* Greeting */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -24,7 +20,6 @@ const HeroSection = () => {
           Hi, I'm
         </motion.p>
 
-        {/* Name */}
         <TextReveal
           className="hero-name mt-4 text-foreground select-none"
           delay={0.4}
@@ -33,17 +28,22 @@ const HeroSection = () => {
           ANJALI
         </TextReveal>
 
-        {/* Positioning */}
-        <motion.p
+        {/* Role cards */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="mt-4 text-sm font-semibold uppercase tracking-[0.25em] text-primary"
+          className="mt-6 flex flex-wrap items-center justify-center gap-3"
         >
-          Full Stack Developer • Writer • Visual Storyteller
-        </motion.p>
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+            Full Stack Developer
+          </span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground">
+            <Camera className="h-3.5 w-3.5" />
+            Photographer
+          </span>
+        </motion.div>
 
-        {/* Tagline */}
         <motion.p
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -53,19 +53,27 @@ const HeroSection = () => {
           I design and build digital experiences that combine technology, aesthetics and storytelling.
         </motion.p>
 
-        {/* Resume Button */}
+        {/* Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.6 }}
-          className="mt-10"
+          className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
+          <MagneticButton strength={0.15}>
+            <a
+              href="#work"
+              className="rounded-full border border-border bg-card px-7 py-3 text-sm font-semibold text-foreground transition-all hover:border-primary hover:text-primary"
+            >
+              View Projects
+            </a>
+          </MagneticButton>
           <MagneticButton strength={0.15}>
             <a
               href="https://drive.google.com/file/d/your-resume-link"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_30px_-6px_hsl(330,80%,60%,0.4)]"
+              className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_30px_-6px_hsl(330,80%,60%,0.4)]"
             >
               Download Resume
             </a>

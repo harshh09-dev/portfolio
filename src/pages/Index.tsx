@@ -6,7 +6,7 @@ import GlobalSyncSection from "@/components/GlobalSyncSection";
 import FounderSection from "@/components/FounderSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
-import ServicesSection from "@/components/ServicesSection";
+import WhatIDoSection from "@/components/WhatIDoSection";
 import CreativeWorkSection from "@/components/CreativeWorkSection";
 import WorkExperienceSection from "@/components/WorkExperienceSection";
 import CurrentlyBuildingSection from "@/components/CurrentlyBuildingSection";
@@ -31,10 +31,10 @@ const Index = () => {
       <div id="skills">
         <SkillsSection />
       </div>
+      <WhatIDoSection />
       <div id="work">
         <ProjectsSection />
       </div>
-      <ServicesSection />
       <CreativeWorkSection />
       <GlobalSyncSection />
       <FounderSection />
