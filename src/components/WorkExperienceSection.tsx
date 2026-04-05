@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const experiences = [
   {
@@ -56,16 +57,15 @@ const WorkExperienceSection = () => {
   return (
     <section className="px-6 py-32 md:px-16">
       <div className="mx-auto max-w-4xl">
-        <p className="section-label">Career path</p>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-4 text-4xl font-bold leading-tight text-foreground md:text-5xl"
-        >
-          Experience That{" "}
-          <span className="font-display italic">Ships</span>
-        </motion.h2>
+        <ScrollReveal>
+          <p className="section-label">Career path</p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <h2 className="mt-4 text-4xl font-bold leading-tight text-foreground md:text-5xl">
+            Experience That{" "}
+            <span className="font-display italic">Ships</span>
+          </h2>
+        </ScrollReveal>
 
         <div className="relative mt-16">
           {/* Timeline line */}
@@ -73,56 +73,51 @@ const WorkExperienceSection = () => {
 
           <div className="space-y-0">
             {experiences.map((exp, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" }}
-                className="group relative py-8 pl-12"
-              >
-                {/* Timeline dot */}
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.12 + 0.2, type: "spring", stiffness: 300 }}
-                  className="absolute left-[12px] top-10 h-4 w-4 rounded-full border-2 border-primary bg-background transition-colors group-hover:bg-primary"
-                />
+              <ScrollReveal key={i} delay={i * 0.1} direction="left">
+                <div className="group relative py-8 pl-12">
+                  {/* Timeline dot */}
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.12 + 0.2, type: "spring", stiffness: 300 }}
+                    className="absolute left-[12px] top-10 h-4 w-4 rounded-full border-2 border-primary bg-background transition-all duration-300 group-hover:bg-primary group-hover:shadow-[0_0_15px_2px_hsl(330,80%,60%,0.4)]"
+                  />
 
-                <div className="rounded-2xl border border-border bg-card p-6 transition-all duration-300 group-hover:border-primary/30 group-hover:shadow-[0_0_40px_-12px_hsl(var(--primary)/0.1)]">
-                  <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground">{exp.role}</h3>
-                      <p className="text-sm font-medium text-primary">{exp.company}</p>
+                  <div className="rounded-2xl border border-border bg-card p-6 transition-all duration-500 group-hover:border-primary/30 group-hover:shadow-[0_0_60px_-12px_hsl(330,80%,60%,0.08)]">
+                    <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
+                      <div>
+                        <h3 className="text-lg font-bold text-foreground">{exp.role}</h3>
+                        <p className="text-sm font-medium text-primary">{exp.company}</p>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <Briefcase className="h-3.5 w-3.5" />
+                        {exp.period} · {exp.location}
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <Briefcase className="h-3.5 w-3.5" />
-                      {exp.period} · {exp.location}
+
+                    <ul className="mt-4 space-y-2">
+                      {exp.bullets.map((bullet, j) => (
+                        <li key={j} className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground">
+                          <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary/60" />
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {exp.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-border px-3 py-1 text-xs font-medium text-muted-foreground transition-all duration-300 hover:border-primary/50 hover:text-primary"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                  </div>
-
-                  <ul className="mt-4 space-y-2">
-                    {exp.bullets.map((bullet, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground">
-                        <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary/60" />
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {exp.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-border px-3 py-1 text-xs font-medium text-muted-foreground transition-all hover:border-primary/50 hover:text-primary"
-                      >
-                        {tag}
-                      </span>
-                    ))}
                   </div>
                 </div>
-              </motion.div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
