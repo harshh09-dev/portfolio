@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import ScrollReveal from "./ScrollReveal";
+import { StaggerContainer, staggerItem } from "./ScrollReveal";
 
 const testimonials = [
   {
@@ -44,42 +46,45 @@ const TestimonialsSection = () => {
   return (
     <section className="overflow-hidden py-32">
       <div className="mx-auto max-w-6xl px-6 md:px-16">
-        <p className="section-label">What others say</p>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-4 text-4xl font-bold text-foreground md:text-6xl"
-        >
-          The Voices{" "}
-          <span className="font-display italic">Behind</span>
-        </motion.h2>
+        <ScrollReveal>
+          <p className="section-label">What others say</p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <h2 className="mt-4 text-4xl font-bold text-foreground md:text-6xl">
+            The Voices{" "}
+            <span className="font-display italic">Behind</span>
+          </h2>
+        </ScrollReveal>
       </div>
 
       {/* Horizontal scrolling carousel */}
-      <div className="mt-16">
-        <div className="animate-testimonial-scroll flex gap-6 px-6">
-          {doubled.map((t, i) => (
-            <div
-              key={t.name + i}
-              className="w-[340px] flex-shrink-0 rounded-2xl border border-border bg-card p-6"
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-sm font-bold text-foreground">
-                  {t.name.split(" ").map((n) => n[0]).join("").slice(0, 3)}
+      <ScrollReveal delay={0.2}>
+        <div className="mt-16">
+          <div className="animate-testimonial-scroll flex gap-6 px-6">
+            {doubled.map((t, i) => (
+              <motion.div
+                key={t.name + i}
+                whileHover={{ y: -6, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                className="w-[340px] flex-shrink-0 rounded-2xl border border-border bg-card p-6 transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_40px_-12px_hsl(330,80%,60%,0.1)]"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-sm font-bold text-foreground">
+                    {t.name.split(" ").map((n) => n[0]).join("").slice(0, 3)}
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-foreground">{t.name}</h4>
+                    <p className="text-xs text-muted-foreground">{t.role}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-foreground">{t.name}</h4>
-                  <p className="text-xs text-muted-foreground">{t.role}</p>
-                </div>
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground italic">
-                "{t.quote}"
-              </p>
-            </div>
-          ))}
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground italic">
+                  "{t.quote}"
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 };
