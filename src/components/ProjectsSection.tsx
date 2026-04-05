@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const projects = [
@@ -62,109 +62,127 @@ const projects = [
   },
 ];
 
-const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {
+const StickyProjectCard = ({ project, index, totalCards }: { project: typeof projects[0]; index: number; totalCards: number }) => {
   const [imgIdx, setImgIdx] = useState(0);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "end start"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.92, 1, 0.95]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0, 1, 1, index < totalCards - 1 ? 0.6 : 1]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_60px_-15px_hsl(var(--primary)/0.15)]"
-      style={{ marginTop: index > 0 ? "-2rem" : 0, zIndex: index }}
+    <div
+      ref={cardRef}
+      className="sticky"
+      style={{
+        top: `${80 + index * 30}px`,
+        zIndex: index + 1,
+        paddingBottom: index < totalCards - 1 ? "2rem" : 0,
+      }}
     >
-      {/* Image carousel */}
-      <div className="relative h-56 w-full overflow-hidden md:h-72">
-        <motion.img
-          key={imgIdx}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4 }}
-          src={project.images[imgIdx]}
-          alt={`${project.title} preview`}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+      <motion.div
+        style={{ scale, opacity }}
+        className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-lg shadow-background/50 transition-colors duration-500 hover:border-primary/40"
+      >
+        {/* Image carousel */}
+        <div className="relative h-52 w-full overflow-hidden md:h-64 lg:h-72">
+          <motion.img
+            key={imgIdx}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            src={project.images[imgIdx]}
+            alt={`${project.title} preview`}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
 
-        {/* Carousel controls */}
-        {project.images.length > 1 && (
-          <div className="absolute bottom-16 right-6 flex gap-2">
-            <button
-              onClick={(e) => { e.preventDefault(); setImgIdx(imgIdx === 0 ? project.images.length - 1 : imgIdx - 1); }}
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-card/80 text-foreground backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </button>
-            <button
-              onClick={(e) => { e.preventDefault(); setImgIdx((imgIdx + 1) % project.images.length); }}
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-card/80 text-foreground backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </button>
+          {project.images.length > 1 && (
+            <div className="absolute bottom-16 right-4 flex gap-2 md:right-6">
+              <button
+                onClick={(e) => { e.preventDefault(); setImgIdx(imgIdx === 0 ? project.images.length - 1 : imgIdx - 1); }}
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-card/80 text-foreground backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+              <button
+                onClick={(e) => { e.preventDefault(); setImgIdx((imgIdx + 1) % project.images.length); }}
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-card/80 text-foreground backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </button>
+            </div>
+          )}
+
+          <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between md:left-6 md:right-6">
+            <div>
+              <span className="text-xs font-medium uppercase tracking-widest text-primary">
+                0{index + 1} / 0{totalCards}
+              </span>
+              <h3 className="mt-1 text-xl font-bold text-foreground md:text-3xl">{project.title}</h3>
+            </div>
+            <div className="flex gap-2">
+              {project.github && (
+                <a href={project.github} target="_blank" rel="noopener noreferrer" className="rounded-full bg-card/80 p-2 backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground">
+                  <Github className="h-4 w-4" />
+                </a>
+              )}
+              {project.link && (
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-full bg-card/80 p-2 backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground">
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              )}
+            </div>
           </div>
-        )}
+        </div>
 
-        <div className="absolute bottom-4 left-6 right-6 flex items-end justify-between">
-          <h3 className="text-2xl font-bold text-foreground md:text-3xl">{project.title}</h3>
-          <div className="flex gap-2">
-            {project.github && (
-              <a href={project.github} target="_blank" rel="noopener noreferrer" className="rounded-full bg-card/80 p-2 backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground">
-                <Github className="h-4 w-4" />
-              </a>
-            )}
+        {/* WHAT / HOW / IMPACT */}
+        <div className="p-5 md:p-8">
+          <div className="grid gap-4 md:grid-cols-3">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-primary">What</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.what}</p>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-primary">How</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.how}</p>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-primary/80">Impact</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.impact}</p>
+            </div>
+          </div>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span key={tag} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-4 flex gap-4">
             {project.link && (
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="rounded-full bg-card/80 p-2 backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground">
-                <ExternalLink className="h-4 w-4" />
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-primary hover:underline">
+                Live Demo →
               </a>
             )}
+            {project.github && (
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-muted-foreground hover:text-foreground hover:underline">
+                Source Code →
+              </a>
+            )}
+            <Link to={`/projects/${project.id}`} className="ml-auto text-xs font-semibold text-primary hover:underline">
+              View Details →
+            </Link>
           </div>
         </div>
-      </div>
-
-      {/* WHAT / HOW / IMPACT */}
-      <div className="p-6 md:p-8">
-        <div className="grid gap-4 md:grid-cols-3">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-primary">What</p>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.what}</p>
-          </div>
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-primary">How</p>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.how}</p>
-          </div>
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-accent">Impact</p>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.impact}</p>
-          </div>
-        </div>
-
-        <div className="mt-6 flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <span key={tag} className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground">
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-4 flex gap-4">
-          {project.link && (
-            <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-primary hover:underline">
-              Live Demo →
-            </a>
-          )}
-          {project.github && (
-            <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-muted-foreground hover:text-foreground hover:underline">
-              Source Code →
-            </a>
-          )}
-          <Link to={`/projects/${project.id}`} className="text-xs font-semibold text-primary hover:underline ml-auto">
-            View Details →
-          </Link>
-        </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 
@@ -183,9 +201,9 @@ const ProjectsSection = () => {
           <span className="text-muted-foreground">Showcase</span>
         </motion.h2>
 
-        <div className="mt-16 space-y-0">
+        <div className="relative mt-16">
           {projects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
+            <StickyProjectCard key={project.id} project={project} index={i} totalCards={projects.length} />
           ))}
         </div>
 
